@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PCP Ads — Versiani Swim</title>
+<style>
+  :root {
+    --bg: #0f0f0f;
+    --surface: #181818;
+    --border: #2a2a2a;
+    --text: #e8e8e8;
+    --muted: #666;
+    --accent: #c8a96e;
+    --green: #3ecf8e;
+    --orange: #f59e0b;
+    --blue: #60a5fa;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 14px;
+    padding: 32px 24px;
+    min-height: 100vh;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 16px;
+  }
+  .logo { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); font-weight: 600; }
+  h1 { font-size: 22px; font-weight: 700; margin-top: 4px; }
+  .meta { font-size: 12px; color: var(--muted); text-align: right; }
+  .meta span { display: block; }
+  .pipeline-bar {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+  }
+  .pipeline-bar .highlight { color: var(--orange); font-weight: 600; }
+  .pipeline-bar .active { color: var(--green); font-weight: 600; }
+  .table-wrap { overflow-x: auto; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  th, td {
+    padding: 10px 14px;
+    text-align: right;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  th {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--muted);
+    background: var(--surface);
+  }
+  th.prontos { color: var(--orange); }
+  th.gastando { color: var(--green); }
+  th.gasto { color: var(--blue); }
+  td.prod {
+    text-align: left;
+    color: var(--text);
+    font-weight: 500;
+    min-width: 200px;
+  }
+  td.prontos { color: var(--orange); font-weight: 600; }
+  td.prontos.dim { color: #4a3a1a; font-weight: 400; }
+  td.gastando { color: var(--green); font-weight: 600; }
+  td.gastando.dim { color: #1a3a2a; font-weight: 400; }
+  td.gasto { color: var(--blue); }
+  td.dim { color: #333; }
+  tr:hover td { background: #1e1e1e; }
+  tr.tot-row td { background: var(--surface); border-top: 2px solid var(--border); border-bottom: none; }
+  .total { font-weight: 700; }
+  .total.prontos { color: var(--orange); }
+  .total.gastando { color: var(--green); }
+  .total.gasto { color: var(--blue); }
+  footer { margin-top: 32px; font-size: 11px; color: var(--muted); }
+
+  /* ── Tabs ── */
+  .tabs {
+    display: flex; gap: 4px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 28px;
+  }
+  .tab-btn {
+    background: none; border: none; cursor: pointer;
+    font-size: 13px; font-weight: 600; color: var(--muted);
+    padding: 10px 16px; border-bottom: 2px solid transparent;
+    margin-bottom: -1px; transition: color 0.15s, border-color 0.15s;
+  }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active { color: var(--text); border-bottom-color: var(--accent); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── Análise por dimensão ── */
+  .dim-grids { display: flex; gap: 32px; flex-wrap: wrap; }
+  .dim-grid { flex: 1 1 260px; }
+  .dim-grid h3 {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px; color: var(--muted); margin-bottom: 10px;
+  }
+  .dim-grid table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .dim-grid th, .dim-grid td {
+    padding: 8px 10px; text-align: right;
+    border-bottom: 1px solid var(--border);
+  }
+  .dim-grid th { font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); background: var(--surface); }
+  .dim-grid td.prod { text-align: left; font-weight: 500; min-width: 160px; }
+
+  /* ── Fila section ── */
+  .fila-section { margin-top: 48px; }
+  .fila-section h2 {
+    font-size: 15px; font-weight: 700; margin-bottom: 4px;
+  }
+  .fila-section .fila-sub {
+    font-size: 12px; color: var(--muted); margin-bottom: 24px;
+  }
+  .fila-grupos { display: flex; flex-wrap: wrap; gap: 24px; }
+  .fila-grupo {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    min-width: 220px;
+    flex: 1 1 220px;
+  }
+  .fila-grupo-title {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px; color: var(--muted); margin-bottom: 10px;
+  }
+  .fila-n { font-weight: 400; }
+  .fila-item {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 0; border-bottom: 1px solid var(--border);
+    font-size: 12px; flex-wrap: wrap;
+  }
+  .fila-item:last-child { border-bottom: none; }
+  .ad-id {
+    font-family: monospace; font-weight: 700; font-size: 13px;
+    color: var(--text); text-decoration: none;
+    transition: color 0.15s;
+  }
+  a .ad-id:hover { color: var(--accent); }
+  a { text-decoration: none; }
+  .badge {
+    font-size: 10px; font-weight: 600; padding: 2px 7px;
+    border-radius: 99px; white-space: nowrap;
+  }
+  .tag {
+    font-size: 10px; color: var(--muted);
+    background: #222; padding: 2px 6px; border-radius: 4px;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="logo">Versiani Swim</div>
+    <h1>PCP de Ads</h1>
+  </div>
+  <div class="meta">
+    <span>Atualizado em 2026-07-09</span>
+    <span>Janela: 2026-07-02 → 2026-07-09</span>
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="tab-btn active" onclick="showTab('pipeline', this)">Pipeline</button>
+  <button class="tab-btn" onclick="showTab('angulos', this)">Ângulos & Formatos</button>
+</nav>
+
+<!-- ── Tab: Pipeline ── -->
+<div id="tab-pipeline" class="tab-panel active">
+
+  <div class="pipeline-bar">
+    Brutos → Limpos → Inserts → <span class="highlight">Prontos</span> → <span class="active">Gastando</span>
+  </div>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th style="text-align:left">Produto</th>
+        <th class="">Brutos</th><th class="">Limpos</th><th class="">Inserts</th><th class="prontos">Prontos</th><th class="gastando">Gastando</th>
+        <th class="gasto">Gasto 7d</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class='prod'>Biquíni Fita Tradicional</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">8</td><td class="gastando">26</td><td class="gasto">R$ 41.579</td></tr>
+<tr><td class='prod'>Macaquinho Decote Costas</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">7</td><td class="gastando">3</td><td class="gasto">R$ 2.862</td></tr>
+<tr><td class='prod'>Macaquinho Costas Cruzadas</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">2</td><td class="gastando dim">—</td><td class="gasto">—</td></tr>
+<tr><td class='prod'>Macacão Decote Costas</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">4</td><td class="gastando">5</td><td class="gasto">R$ 1.261</td></tr>
+<tr><td class='prod'>Macacão Costas Cruzadas</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">2</td><td class="gastando dim">—</td><td class="gasto">—</td></tr>
+<tr><td class='prod'>Top e Legging</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos dim">—</td><td class="gastando">1</td><td class="gasto">R$ 4.835</td></tr>
+<tr><td class='prod'>Outros</td><td class="">7</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">3</td><td class="gastando">7</td><td class="gasto">R$ 3.862</td></tr>
+
+      <tr class="tot-row">
+        <td class="prod">Total</td>
+        <td class="total ">7</td><td class="total ">0</td><td class="total ">0</td><td class="total prontos">26</td><td class="total gastando">42</td><td class="total gasto">R$ 56.158</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="fila-section" style="margin-bottom:32px">
+    <h2>Levas de Gravação (Brutos)</h2>
+    <div class="fila-sub">45 vídeos brutos · clique na pasta para abrir no Drive</div>
+    <div class="fila-grupos">
+      <div class="fila-item" style=""><a href="https://drive.google.com/drive/folders/1OUz3GVHVStwX-57AJR6-P0YrhTmt-86X" target="_blank"><span class="ad-id">📁 LEVA PROVADOR - 03/07</span></a><span class="tag" style="color:#60a5fa">Outros</span><span class="badge" style="color:#fff;background:#333">7 vídeos</span><span style="color:var(--muted);font-size:11px;margin-left:6px">2026-07-03</span></div>
+<div class="fila-item" style="opacity:0.4"><a href="https://drive.google.com/drive/folders/18CQgxyfPDnGQp_aI3JG2jYnuy8rLQqbi" target="_blank"><span class="ad-id">✓ ADS NINA GW - NOVO BIKI FITA</span></a><span class="badge" style="color:#888;background:#222">22 vídeos · concluída</span><span style="color:var(--muted);font-size:11px;margin-left:6px">2026-04-22</span></div>
+<div class="fila-item" style="opacity:0.4"><a href="https://drive.google.com/drive/folders/1vH5aikRcUvofcbEcXGxwhjUndviA2BWY" target="_blank"><span class="ad-id">✓ ADS MKT - COLEÇÃO MARINE</span></a><span class="badge" style="color:#888;background:#222">12 vídeos · concluída</span><span style="color:var(--muted);font-size:11px;margin-left:6px">2026-04-10</span></div>
+<div class="fila-item" style="opacity:0.4"><a href="https://drive.google.com/drive/folders/1TfUcZGboNrdvWJ4G6QrLILIDVOgwQCls" target="_blank"><span class="ad-id">✓ ADS LIVIA MAZ - COLEÇÃO MARINE</span></a><span class="badge" style="color:#888;background:#222">4 vídeos · concluída</span><span style="color:var(--muted);font-size:11px;margin-left:6px">2026-04-10</span></div>
+
+    </div>
+  </div>
+
+  <div class="fila-section">
+    <h2>Fila de Veiculação</h2>
+    <div class="fila-sub">26 ads aguardando · clique no ID para abrir no Drive</div>
+    <div class="fila-grupos">
+      <div class="fila-grupo"><div class="fila-grupo-title">Biquíni Fita Tradicional <span class="fila-n">(8)</span></div><div class="fila-item"><a href="https://drive.google.com/file/d/18eJe2R7jtH6xGLM3lmjiH8SSW71X-jO_/view?usp=drivesdk" target="_blank"><span class="ad-id">AD333</span></a><span class="badge" style="color:#f59e0b;background:#2d2000">Ag. Veiculação</span></div>
+<div class="fila-item"><a href="https://drive.google.com/file/d/1mg_yZEQDJMldVaLXwrrGB8yM5xhIG35I/view?usp=drivesdk" target="_blank"><span class="ad-id">AD334</span></a><span class="badge" style="color:#f59e0b;background:#2d2000">Ag. Veiculação</span></div>
+<div class="fila-item"><a href="https://drive.google.com/file/d/1pRoOvt327smrPtzxq4mqfDBZsuLlMZAr/view?usp=drivesdk" target="_blank"><span class="ad-id">AD338</span></a><span class="badge" style="color:#f59e0b;background:#2d2000">Ag. Veiculação</span></div>
+<div class="fila-item"><a href="https://drive.google.com/file/d/1hBKe0zkFlqi0-hVgB3MYAcJahSGzmliE/view?usp=drivesdk" target="_blank"><span class="ad-id">AD339</span></a><span class="badge" style="color:#f59e0b;background:#2d2000">Ag. Veiculação</span></div>
+<div class="fila-item"><a href="https://drive.google.com/file/d/1zK0c9_ckq775iTWvS8mSxppgXBqzZWlF/view" target="_blank"><span class="ad-id">AD362</span></a><span class="badge" style="color:#f59e0b;background:#2d2000">Ag. Veiculação</span><span class="tag">Insegurança → Confiança</span><span class="tag">UGC</span></div>
+<div class="fila-item"><a href="https://drive.google.com/file/d/1yeApV7-569jZfai32EjdRE693JwUlpX0/view" target="_blank"><span class="ad-id">AD384</span></a><span class="badge" style="color:#f59e0b;background:#2d2000">Ag. Veiculação</span><span class="tag">CUSTO-BENEFICIO</span><span class="tag">UGC</span></div>
+<div class="fila-item"><a href="https://drive.google.com/file/d/10iKq2FHIjKJt8zXYl5txQQmuvvGdqGvg/view" target="_blank"><span class="ad-id">AD385</span></a><span class="badge" style="color:#f59e0b;background:#2d2000">Ag. Veiculação</span><span class="tag">CELEBRIDADES</span><span class="tag">UGC</span></div>
+<div class="fila-item"><a href="https://drive.google.com/file/d/1OoS6jV-uZT3XqMKErxXfyISKN5c6DCcp/view" target="_blank"><span class="ad-id">AD386</span></a><span class="badge" style="color:#f59e0b;background:#2d2000">Ag. Veiculação</span><span class="tag">FAMOSO</span><span class="tag">UGC</span></div>
+</div>
+<div class="fila-grupo"><div class="fila-grupo-title">Macaquinho Decote Costas <span class="fila-n">(7)</span></div><div class="fila-item"><a href="https://drive.google.com/file/d/1D-QcTxOxmLRug6-I91Lpl2Sbd6l1-IBx/view?usp=drivesdk" target="_blank"><span class="ad-id">AD343</span></a><span class="badge" style="color:#f59e0b;background:#2d2000">Ag. Veiculação</span></div>
+<div class="fila-item"><a href="https://drive.google.com/file/d/1OtzpNLnKjTaYhC-jMudWbNrqac2gn91t/view?usp=drivesdk" target="_blank"><span class="ad-id">AD344</span></a><span class="badge" style="color:#f59e0b;background:#2d2000">Ag. Veiculação</span></div>
+<div class="fila-item"><a href="https://drive.google.com/file/d/1KsW0y9dpbYC1qI1lrI2Iu1r1DSVs8PRI/view?usp=drivesdk" target="_blank"><span class="ad-id">AD355</span></a><span class="badge" style="color:#f59e0b;background:#2d2000">Ag. Veiculação</span><span class="tag">GRWM</span><span class="tag">UGC</span></div>
+<div class="fila-item"><a href="https://drive.google.com/file/d/1ef47hewusyu5x2jkLZpRCeels0sBqSLh/view" target="_blank"><span class="ad-id">AD361</span></a><span class="badge" style="color:#f59e0b;background:#2d2000">Ag. Veiculação</span><span class="tag">Look fit que não marca</span><span class="tag">UGC</span></div>
+<div class="fila-item"><a href="https://drive.google.com/file/d/1k2XShWLs_ae29zFbz7zoIecv1faeDieX/view" target="_blank"><span class="ad-id">AD380</span></a><span class="badge" style="color:#f59e0b;background:#2d2000">Ag. Veiculação</span><span class="tag">DECOTE-COSTAS</span><span class="tag">UGC</span></div>
+<div class="fila-item"><a href="https://drive.google.com/file/d/11wqI6NsdEYdvDe2joeKYIjE8Yt2MC2F6" target="_blank"><span class="ad-id">AD413</span></a><span class="badge" style="color:#f59e0b;background:#2d2000">Ag. Veiculação</span><span class="tag">Objeção treino</span><span class="tag">Story/UGC imagem</span></div>
+<div class="fila-item"><a href="https://drive.google.com/file/d/1j4nLNzZ8jWZHRHyDgLPd5hNQWQM3Kavo" target="_blank"><span class="ad-id">AD417</span></a><span class="badge" style="color:#f59e0b;background:#2d2000">Ag. Veiculação</span><span class="tag">CONFORTO-TREINO</span><span class="tag">IA-STORY</span></div>
+</div>
+<div class="fila-grupo"><div class="fila-grupo-title">Macaquinho Costas Cruzadas <span class="fila-n">(2)</span></div><div class="fila-item"><a href="https://drive.google.com/file/d/12CCG9hqGc5-gTLdJ83hocATe1wn98Rq-/view?usp=drivesdk" target="_blank"><span class="ad-id">AD330</span></a><span class="badge" style="color:#f59e0b;background:#2d2000">Ag. Veiculação</span></div>
+<div class="fila-item"><a href="https://drive.google.com/file/d/18P-JumQs_ocnmPrHFlv6ARCwURRnPcKo" target="_blank"><span class="ad-id">AD415</span></a><span class="badge" style="color:#f59e0b;background:#2d2000">Ag. Veiculação</span><span class="tag">SUSTENTACAO</span><span class="tag">IA-STORY</span></div>
+</div>
+<div class="fila-grupo"><div class="fila-grupo-title">Macacão Decote Costas <span class="fila-n">(4)</span></div><div class="fila-item"><a href="https://drive.google.com/file/d/10ArUrHqb5tXzTpOQh7Sbt-8d6x2-nR7R/view?usp=drivesdk" target="_blank"><span class="ad-id">AD346</span></a><span class="badge" style="color:#f59e0b;background:#2d2000">Ag. Veiculação</span></div>
+<div class="fila-item"><a href="https://drive.google.com/file/d/1VFxUWObZYyHd2JsnfLPfqx5kzAjBrQUr/view" target="_blank"><span class="ad-id">AD360</span></a><span class="badge" style="color:#f59e0b;background:#2d2000">Ag. Veiculação</span><span class="tag">Versatilidade</span><span class="tag">UGC</span></div>
+<div class="fila-item"><a href="https://drive.google.com/file/d/1eJecrrTAbx1vYP_xeeJtip5YT6JC9A_e/view" target="_blank"><span class="ad-id">AD383</span></a><span class="badge" style="color:#f59e0b;background:#2d2000">Ag. Veiculação</span><span class="tag">VERSATILIDADE</span><span class="tag">ESTUDIO</span></div>
+<div class="fila-item"><a href="https://drive.google.com/file/d/1YZoWdOvMltwtN3NgW7R8tnAefP2q4ir3" target="_blank"><span class="ad-id">AD416</span></a><span class="badge" style="color:#f59e0b;background:#2d2000">Ag. Veiculação</span><span class="tag">TRANSPARENCIA</span><span class="tag">IA-STORY</span></div>
+</div>
+<div class="fila-grupo"><div class="fila-grupo-title">Macacão Costas Cruzadas <span class="fila-n">(2)</span></div><div class="fila-item"><a href="https://drive.google.com/file/d/18QDAuhY0Mcl8laUHO3ID3A_ybvn3agGe" target="_blank"><span class="ad-id">AD411</span></a><span class="badge" style="color:#f59e0b;background:#2d2000">Ag. Veiculação</span><span class="tag">Autoestima Espelho</span><span class="tag">UGC</span></div>
+<div class="fila-item"><a href="https://drive.google.com/file/d/1uIji6RzJtCVS5CBgIvoCyJcsRg872Smi" target="_blank"><span class="ad-id">AD414</span></a><span class="badge" style="color:#f59e0b;background:#2d2000">Ag. Veiculação</span><span class="tag">SUSTENTACAO</span><span class="tag">IA-STORY</span></div>
+</div>
+<div class="fila-grupo"><div class="fila-grupo-title">Outros <span class="fila-n">(3)</span></div><div class="fila-item"><a href="https://drive.google.com/file/d/1ygYzv-auF7-fXJ1p0KP0OjbcYwr3Fkl2/view?usp=drivesdk" target="_blank"><span class="ad-id">AD332</span></a><span class="badge" style="color:#f59e0b;background:#2d2000">Ag. Veiculação</span></div>
+<div class="fila-item"><a href="https://drive.google.com/file/d/1TLGKOKh6-G-Gk_dYdN_IZl1qT_ZN6JSy/view?usp=drivesdk" target="_blank"><span class="ad-id">AD342</span></a><span class="badge" style="color:#f59e0b;background:#2d2000">Ag. Veiculação</span></div>
+<div class="fila-item"><a href="https://drive.google.com/file/d/1l29UFz2iiOJDa7ZDQ-8ddWMwacan5T62/view?usp=drivesdk" target="_blank"><span class="ad-id">AD345</span></a><span class="badge" style="color:#f59e0b;background:#2d2000">Ag. Veiculação</span></div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- ── Tab: Ângulos & Formatos ── -->
+<div id="tab-angulos" class="tab-panel">
+  <p style="font-size:12px;color:var(--muted);margin-bottom:24px">
+    Ativos = "No ar" na planilha &middot; Fila = "Pronto" ou "Ag. Veiculação" &middot; AD330+
+  </p>
+  <div class="dim-grids">
+    <div class="dim-grid">
+      <h3>Por Ângulo</h3>
+      <table>
+        <thead><tr><th style="text-align:left">Ângulo</th><th class="gastando">Ativo</th><th class="prontos">Fila</th></tr></thead>
+        <tbody><tr><td class="prod">ANIVERSARIO</td><td class="gastando">16</td><td class="prontos dim">—</td></tr>
+<tr><td class="prod">—</td><td class="gastando">12</td><td class="prontos">11</td></tr>
+<tr><td class="prod">DEPOIMENTO</td><td class="gastando">2</td><td class="prontos dim">—</td></tr>
+<tr><td class="prod">CUSTO-BENEFICIO</td><td class="gastando">1</td><td class="prontos">1</td></tr>
+<tr><td class="prod">Marquinha de fita (cortado: sem TikTok Shop)</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
+<tr><td class="prod">Efeito silicone / realça corpo (cortado: sem TikTok Shop)</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
+<tr><td class="prod">Marquinha perfeita</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
+<tr><td class="prod">Bronzeado perfeito (unboxing)</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
+<tr><td class="prod">Não marca</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
+<tr><td class="prod">Compressão / modela (top P, leg M)</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
+<tr><td class="prod">Modela o corpo / efeito silicone</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
+<tr><td class="prod">Não transparência (legging fantasma)</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
+<tr><td class="prod">SEM-COSTURA</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
+<tr><td class="prod">FAVORITO</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
+<tr><td class="prod">Look Treino</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
+<tr><td class="prod">Benefícios Poliamida</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
+<tr><td class="prod">Algoritmo Desconto</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
+<tr><td class="prod">Escolha Única Peça</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
+<tr><td class="prod">SUSTENTACAO</td><td class="gastando dim">—</td><td class="prontos">2</td></tr>
+<tr><td class="prod">GRWM</td><td class="gastando dim">—</td><td class="prontos">1</td></tr>
+<tr><td class="prod">Versatilidade</td><td class="gastando dim">—</td><td class="prontos">1</td></tr>
+<tr><td class="prod">Look fit que não marca</td><td class="gastando dim">—</td><td class="prontos">1</td></tr>
+<tr><td class="prod">Insegurança → Confiança</td><td class="gastando dim">—</td><td class="prontos">1</td></tr>
+<tr><td class="prod">CELEBRIDADES</td><td class="gastando dim">—</td><td class="prontos">1</td></tr>
+<tr><td class="prod">FAMOSO</td><td class="gastando dim">—</td><td class="prontos">1</td></tr>
+<tr><td class="prod">DECOTE-COSTAS</td><td class="gastando dim">—</td><td class="prontos">1</td></tr>
+<tr><td class="prod">VERSATILIDADE</td><td class="gastando dim">—</td><td class="prontos">1</td></tr>
+<tr><td class="prod">Autoestima Espelho</td><td class="gastando dim">—</td><td class="prontos">1</td></tr>
+<tr><td class="prod">Objeção treino</td><td class="gastando dim">—</td><td class="prontos">1</td></tr>
+<tr><td class="prod">CONFORTO-TREINO</td><td class="gastando dim">—</td><td class="prontos">1</td></tr>
+<tr><td class="prod">TRANSPARENCIA</td><td class="gastando dim">—</td><td class="prontos">1</td></tr>
+</tbody>
+      </table>
+    </div>
+    <div class="dim-grid">
+      <h3>Por Formato</h3>
+      <table>
+        <thead><tr><th style="text-align:left">Formato</th><th class="gastando">Ativo</th><th class="prontos">Fila</th></tr></thead>
+        <tbody><tr><td class="prod">UGC</td><td class="gastando">22</td><td class="prontos">9</td></tr>
+<tr><td class="prod">ESTATICO-FEED</td><td class="gastando">10</td><td class="prontos dim">—</td></tr>
+<tr><td class="prod">—</td><td class="gastando">7</td><td class="prontos">11</td></tr>
+<tr><td class="prod">ESTUDIO</td><td class="gastando">5</td><td class="prontos">1</td></tr>
+<tr><td class="prod">Story-espelho</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
+<tr><td class="prod">IA-STORY</td><td class="gastando dim">—</td><td class="prontos">4</td></tr>
+<tr><td class="prod">Story/UGC imagem</td><td class="gastando dim">—</td><td class="prontos">1</td></tr>
+</tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<footer>Gerado por pcp_collect.py · 2026-07-09</footer>
+
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+
+</body>
+</html>
