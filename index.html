@@ -68,6 +68,8 @@
   th.prontos { color: var(--orange); }
   th.gastando { color: var(--green); }
   th.gasto { color: var(--blue); }
+  th.fat { color: var(--green); }
+  th.roas { color: var(--accent); }
   td.prod {
     text-align: left;
     color: var(--text);
@@ -79,6 +81,9 @@
   td.gastando { color: var(--green); font-weight: 600; }
   td.gastando.dim { color: #1a3a2a; font-weight: 400; }
   td.gasto { color: var(--blue); }
+  td.fat { color: var(--green); }
+  td.roas { color: var(--accent); font-weight: 600; }
+  td.roas.dim, td.fat.dim { color: #3a3a3a; font-weight: 400; }
   td.dim { color: #333; }
   tr:hover td { background: #1e1e1e; }
   tr.tot-row td { background: var(--surface); border-top: 2px solid var(--border); border-bottom: none; }
@@ -86,11 +91,6 @@
   .total.prontos { color: var(--orange); }
   .total.gastando { color: var(--green); }
   .total.gasto { color: var(--blue); }
-  th.fat { color: var(--green); }
-  th.roas { color: var(--accent); }
-  td.fat { color: var(--green); }
-  td.roas { color: var(--accent); font-weight: 600; }
-  td.roas.dim { color: #3a2a00; font-weight: 400; }
   footer { margin-top: 32px; font-size: 11px; color: var(--muted); }
 
   /* ── Tabs ── */
@@ -202,22 +202,24 @@
       <tr>
         <th style="text-align:left">Produto</th>
         <th class="">Brutos</th><th class="">Limpos</th><th class="">Inserts</th><th class="prontos">Prontos</th><th class="gastando">Gastando</th>
-        <th class="gasto">Gasto 7d</th><th class="fat">Fat. 7d</th><th class="roas">ROAS</th>
+        <th class="gasto">Gasto 7d</th>
+        <th class="fat">Fat. 7d</th>
+        <th class="roas">ROAS</th>
       </tr>
     </thead>
     <tbody>
-      <tr><td class='prod'>Biquíni Fita Tradicional</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">8</td><td class="gastando">27</td><td class="gasto">R$ 45.589</td><td class="fat">R$ 122.989</td><td class="roas">2.70x</td></tr>
+      <tr><td class='prod'>Biquíni Fita Tradicional</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">8</td><td class="gastando">27</td><td class="gasto">R$ 42.284</td><td class="fat">R$ 122.377</td><td class="roas">2.89x</td></tr>
 <tr><td class='prod'>Biquíni Fita Reto</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">1</td><td class="gastando dim">—</td><td class="gasto">—</td><td class="fat dim">—</td><td class="roas dim">—</td></tr>
-<tr><td class='prod'>Macaquinho Decote Costas</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">7</td><td class="gastando">2</td><td class="gasto">R$ 8.253</td><td class="fat">R$ 11.727</td><td class="roas">1.42x</td></tr>
-<tr><td class='prod'>Macaquinho Costas Cruzadas</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">3</td><td class="gastando dim">—</td><td class="gasto">—</td><td class="fat dim">—</td><td class="roas dim">—</td></tr>
-<tr><td class='prod'>Macacão Decote Costas</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">4</td><td class="gastando">5</td><td class="gasto">R$ 3.921</td><td class="fat">R$ 6.776</td><td class="roas">1.73x</td></tr>
+<tr><td class='prod'>Macaquinho Decote Costas</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">7</td><td class="gastando">2</td><td class="gasto">R$ 8.075</td><td class="fat">R$ 11.727</td><td class="roas">1.45x</td></tr>
+<tr><td class='prod'>Macaquinho Costas Cruzadas</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">3</td><td class="gastando dim">—</td><td class="gasto">—</td><td class="fat">R$ 100</td><td class="roas dim">—</td></tr>
+<tr><td class='prod'>Macacão Decote Costas</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">4</td><td class="gastando">5</td><td class="gasto">R$ 3.570</td><td class="fat">R$ 6.776</td><td class="roas">1.90x</td></tr>
 <tr><td class='prod'>Macacão Costas Cruzadas</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">2</td><td class="gastando dim">—</td><td class="gasto">—</td><td class="fat dim">—</td><td class="roas dim">—</td></tr>
-<tr><td class='prod'>Legging</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">1</td><td class="gastando dim">—</td><td class="gasto">R$ 243</td><td class="fat">R$ 781</td><td class="roas">3.21x</td></tr>
-<tr><td class='prod'>Outros</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">3</td><td class="gastando">7</td><td class="gasto">R$ 2.071</td><td class="fat dim">—</td><td class="roas dim">—</td></tr>
+<tr><td class='prod'>Legging</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">1</td><td class="gastando dim">—</td><td class="gasto">R$ 243</td><td class="fat">R$ 781</td><td class="roas">3.22x</td></tr>
+<tr><td class='prod'>Outros</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">3</td><td class="gastando">7</td><td class="gasto">R$ 1.996</td><td class="fat dim">—</td><td class="roas dim">—</td></tr>
 
       <tr class="tot-row">
         <td class="prod">Total</td>
-        <td class="total ">0</td><td class="total ">0</td><td class="total ">0</td><td class="total prontos">29</td><td class="total gastando">41</td><td class="total gasto">R$ 60.077</td><td class="total fat">R$ 142.273</td><td class="total roas">2.37x</td>
+        <td class="total ">0</td><td class="total ">0</td><td class="total ">0</td><td class="total prontos">29</td><td class="total gastando">41</td><td class="total gasto">R$ 56.167</td><td class="total fat">R$ 141.760</td><td class="total roas">2.52x</td>
       </tr>
     </tbody>
   </table>
@@ -288,7 +290,7 @@
 <!-- ── Tab: Ângulos & Formatos ── -->
 <div id="tab-angulos" class="tab-panel">
   <p style="font-size:12px;color:var(--muted);margin-bottom:24px">
-    Ativos = "No ar" na planilha &middot; Fila = "Pronto" &middot; AD330+
+    Ativos = "No ar" na planilha &middot; Fila = "Pronto" ou "Ag. Veiculação" &middot; AD330+
   </p>
   <div class="dim-grids">
     <div class="dim-grid">
@@ -326,6 +328,9 @@
 <tr><td class="prod">Objeção treino</td><td class="gastando dim">—</td><td class="prontos">1</td></tr>
 <tr><td class="prod">CONFORTO-TREINO</td><td class="gastando dim">—</td><td class="prontos">1</td></tr>
 <tr><td class="prod">TRANSPARENCIA</td><td class="gastando dim">—</td><td class="prontos">1</td></tr>
+<tr><td class="prod">COMBO-VIAGEM</td><td class="gastando dim">—</td><td class="prontos">1</td></tr>
+<tr><td class="prod">BEST-SELLER</td><td class="gastando dim">—</td><td class="prontos">1</td></tr>
+<tr><td class="prod">BENEFICIOS</td><td class="gastando dim">—</td><td class="prontos">1</td></tr>
 </tbody>
       </table>
     </div>
@@ -339,6 +344,7 @@
 <tr><td class="prod">ESTUDIO</td><td class="gastando">5</td><td class="prontos">1</td></tr>
 <tr><td class="prod">Story-espelho</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
 <tr><td class="prod">IA-STORY</td><td class="gastando dim">—</td><td class="prontos">4</td></tr>
+<tr><td class="prod">PROVADOR</td><td class="gastando dim">—</td><td class="prontos">3</td></tr>
 <tr><td class="prod">Story/UGC imagem</td><td class="gastando dim">—</td><td class="prontos">1</td></tr>
 </tbody>
       </table>
