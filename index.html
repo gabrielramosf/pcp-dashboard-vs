@@ -125,6 +125,27 @@
   .dim-grid th { font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); background: var(--surface); }
   .dim-grid td.prod { text-align: left; font-weight: 500; min-width: 160px; }
 
+  /* ── Estoque section ── */
+  .estoque-grid { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 32px; }
+  .estoque-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 18px 20px; flex: 1 1 200px; min-width: 180px;
+  }
+  .estoque-card.ok { border-color: #1a3a2a; }
+  .estoque-card.warn { border-color: #2d2000; }
+  .estoque-card.crit { border-color: #2d0a00; }
+  .estoque-prod {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px; color: var(--muted); margin-bottom: 12px;
+  }
+  .estoque-bar-wrap {
+    background: #222; border-radius: 4px; height: 6px; margin-bottom: 10px; overflow: hidden;
+  }
+  .estoque-bar { height: 6px; border-radius: 4px; transition: width 0.3s; }
+  .estoque-nums { display: flex; justify-content: space-between; font-size: 13px; }
+  .estoque-atual { font-weight: 700; font-size: 22px; line-height: 1; margin-bottom: 4px; }
+  .estoque-meta { font-size: 11px; color: var(--muted); }
+
   /* ── Fila section ── */
   .fila-section { margin-top: 48px; }
   .fila-section h2 {
@@ -186,6 +207,7 @@
 
 <nav class="tabs">
   <button class="tab-btn active" onclick="showTab('pipeline', this)">Pipeline</button>
+  <button class="tab-btn" onclick="showTab('estoque', this)">Estoque</button>
   <button class="tab-btn" onclick="showTab('angulos', this)">Ângulos & Formatos</button>
 </nav>
 
@@ -219,7 +241,7 @@
 
       <tr class="tot-row">
         <td class="prod">Total</td>
-        <td class="total ">0</td><td class="total ">0</td><td class="total ">0</td><td class="total prontos">29</td><td class="total gastando">41</td><td class="total gasto">R$ 55.493</td><td class="total fat">R$ 125.724</td><td class="total roas">2.27x</td>
+        <td class="total ">0</td><td class="total ">0</td><td class="total ">0</td><td class="total prontos">29</td><td class="total gastando">41</td><td class="total gasto">R$ 55.494</td><td class="total fat">R$ 125.724</td><td class="total roas">2.27x</td>
       </tr>
     </tbody>
   </table>
@@ -285,6 +307,20 @@
     </div>
   </div>
 
+</div>
+
+<!-- ── Tab: Estoque ── -->
+<div id="tab-estoque" class="tab-panel">
+  <p style="font-size:12px;color:var(--muted);margin-bottom:20px">
+    Ads com status "Ag. Veiculação" ou "Pronto" na planilha · Meta: 10 por produto
+  </p>
+  <div class="estoque-grid">
+    <div class="estoque-card warn"><div class="estoque-prod">Macaquinho Decote Costas</div><div class="estoque-atual" style="color:#f59e0b">5</div><div class="estoque-meta">de 10 · faltam 5</div><div class="estoque-bar-wrap" style="margin-top:10px"><div class="estoque-bar" style="width:50%;background:#f59e0b"></div></div></div>
+<div class="estoque-card warn"><div class="estoque-prod">Macacão Decote Costas</div><div class="estoque-atual" style="color:#f59e0b">5</div><div class="estoque-meta">de 10 · faltam 5</div><div class="estoque-bar-wrap" style="margin-top:10px"><div class="estoque-bar" style="width:50%;background:#f59e0b"></div></div></div>
+<div class="estoque-card crit"><div class="estoque-prod">Biquíni Fita Reto</div><div class="estoque-atual" style="color:#ef4444">1</div><div class="estoque-meta">de 10 · faltam 9</div><div class="estoque-bar-wrap" style="margin-top:10px"><div class="estoque-bar" style="width:10%;background:#ef4444"></div></div></div>
+<div class="estoque-card ok"><div class="estoque-prod">Biquíni Fita Tradicional</div><div class="estoque-atual" style="color:#3ecf8e">8</div><div class="estoque-meta">de 10 · faltam 2</div><div class="estoque-bar-wrap" style="margin-top:10px"><div class="estoque-bar" style="width:80%;background:#3ecf8e"></div></div></div>
+
+  </div>
 </div>
 
 <!-- ── Tab: Ângulos & Formatos ── -->
