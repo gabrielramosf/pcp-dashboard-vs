@@ -146,6 +146,21 @@
   .estoque-atual { font-weight: 700; font-size: 22px; line-height: 1; margin-bottom: 4px; }
   .estoque-meta { font-size: 11px; color: var(--muted); }
 
+  /* ── Testes ANDROMEDA ── */
+  .andro-grid { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; }
+  .andro-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 10px; padding: 16px 18px; min-width: 220px; flex: 1 1 220px; max-width: 340px;
+  }
+  .andro-head { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+  .andro-adset { font-size: 12px; font-weight: 600; color: var(--text); flex: 1 1 100%; margin-bottom: 2px; }
+  .andro-ads { display: flex; flex-direction: column; gap: 4px; }
+  .andro-ad {
+    display: flex; align-items: center; gap: 6px;
+    padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 12px;
+  }
+  .andro-ad:last-child { border-bottom: none; }
+
   /* ── Fila section ── */
   .fila-section { margin-top: 48px; }
   .fila-section h2 {
@@ -207,6 +222,7 @@
 
 <nav class="tabs">
   <button class="tab-btn active" onclick="showTab('pipeline', this)">Pipeline</button>
+  <button class="tab-btn" onclick="showTab('testes', this)">Testes ANDROMEDA</button>
   <button class="tab-btn" onclick="showTab('angulos', this)">Ângulos & Formatos</button>
 </nav>
 
@@ -229,7 +245,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr><td class='prod'>Biquíni Fita Tradicional</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">9</td><td class="gastando">24</td><td class="gasto">R$ 45.035</td><td class="fat">R$ 102.442</td><td class="roas">2.27x</td></tr>
+      <tr><td class='prod'>Biquíni Fita Tradicional</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">9</td><td class="gastando">23</td><td class="gasto">R$ 45.035</td><td class="fat">R$ 102.442</td><td class="roas">2.27x</td></tr>
 <tr><td class='prod'>Biquíni Fita Reto</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos dim">—</td><td class="gastando">2</td><td class="gasto">R$ 39</td><td class="fat dim">—</td><td class="roas dim">—</td></tr>
 <tr><td class='prod'>Macaquinho Decote Costas</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">7</td><td class="gastando">3</td><td class="gasto">R$ 4.620</td><td class="fat">R$ 6.273</td><td class="roas">1.36x</td></tr>
 <tr><td class='prod'>Macaquinho Costas Cruzadas</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">4</td><td class="gastando dim">—</td><td class="gasto">—</td><td class="fat dim">—</td><td class="roas dim">—</td></tr>
@@ -240,7 +256,7 @@
 
       <tr class="tot-row">
         <td class="prod">Total</td>
-        <td class="total ">0</td><td class="total ">0</td><td class="total ">0</td><td class="total prontos">32</td><td class="total gastando">43</td><td class="total gasto">R$ 55.100</td><td class="total fat">R$ 118.530</td><td class="total roas">2.15x</td>
+        <td class="total ">0</td><td class="total ">0</td><td class="total ">0</td><td class="total prontos">32</td><td class="total gastando">42</td><td class="total gasto">R$ 55.100</td><td class="total fat">R$ 118.530</td><td class="total roas">2.15x</td>
       </tr>
     </tbody>
   </table>
@@ -329,6 +345,20 @@
     </div>
   </div>
 
+</div>
+
+<!-- ── Tab: Testes ANDROMEDA ── -->
+<div id="tab-testes" class="tab-panel">
+  <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--muted);margin-bottom:4px">
+    Testes ANDROMEDA · 0 conjuntos
+  </div>
+  <p style="font-size:12px;color:var(--muted);margin-bottom:16px">
+    Ads ACTIVE e PAUSED por conjunto · "há Xd" = dias desde o primeiro ad criado no conjunto
+  </p>
+  <p style='color:var(--muted);font-size:13px'>Nenhum conjunto encontrado na campanha ANDROMEDA.</p>
+  <div class="andro-grid">
+    
+  </div>
 </div>
 
 <!-- ── Tab: Ângulos & Formatos ── -->
