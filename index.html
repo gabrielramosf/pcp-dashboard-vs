@@ -37,23 +37,6 @@
   h1 { font-size: 22px; font-weight: 700; margin-top: 4px; }
   .meta { font-size: 12px; color: var(--muted); text-align: right; }
   .meta span { display: block; }
-  .meta .fresh { color: var(--green); }
-  .meta .stale { color: #ef4444; font-weight: 700; }
-  .camp-section { margin: 4px 0 26px; }
-  .camp-head { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 12px; }
-  .camp-note { text-transform: none; letter-spacing: 0; color: #6b7280; font-size: 11px; margin-left: 8px; }
-  .camp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
-  .camp-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; border-left: 3px solid var(--muted); }
-  .camp-card.hit { border-left-color: var(--green); }
-  .camp-card.miss { border-left-color: #ef4444; }
-  .camp-card.neutral { border-left-color: var(--muted); }
-  .camp-card.neutral .camp-roas { color: var(--text); }
-  .camp-nome { font-size: 12px; color: var(--muted); font-weight: 600; }
-  .camp-roas { font-size: 30px; font-weight: 700; margin: 6px 0 2px; }
-  .camp-card.hit .camp-roas { color: var(--green); }
-  .camp-card.miss .camp-roas { color: #ef4444; }
-  .camp-sub { font-size: 11px; color: var(--muted); }
-  .camp-spend { font-size: 11px; color: var(--blue); margin-top: 8px; }
   .pipeline-bar {
     font-size: 11px;
     color: var(--muted);
@@ -177,11 +160,6 @@
     padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 12px;
   }
   .andro-ad:last-child { border-bottom: none; }
-  .andro-m { font-size: 11px; white-space: nowrap; }
-  .andro-m.first { margin-left: auto; }
-  .andro-ad.loser { background: rgba(185,28,28,0.12); border-radius: 4px; padding: 4px; }
-  .perdedor { font-size: 9px; font-weight: 700; letter-spacing: 0.5px; color: #fff;
-               background: #b91c1c; padding: 1px 5px; border-radius: 4px; }
 
   /* ── Fila section ── */
   .fila-section { margin-top: 48px; }
@@ -237,16 +215,10 @@
     <h1>PCP de Ads</h1>
   </div>
   <div class="meta">
-    <span id="freshness" data-generated="2026-07-26T15:54">Atualizado em 2026-07-26</span>
+    <span>Atualizado em 2026-07-26</span>
     <span>Janela: 2026-07-19 → 2026-07-26</span>
   </div>
 </header>
-
-<section class="camp-section"><div class="camp-head">ROAS hybrid por campanha<span class="camp-note">receita real (GA4 dias fechados + LNDC recente) · só pago · 2026-07-22→2026-07-25</span></div><div class="camp-grid"><div class="camp-card hit"><div class="camp-nome">Teste</div><div class="camp-roas">4.79x</div><div class="camp-sub">meta 2.5x · R$ 24.497 receita</div><div class="camp-spend">R$ 5.110 gasto · 2026-07-22→2026-07-25</div></div>
-<div class="camp-card hit"><div class="camp-nome">Escala</div><div class="camp-roas">4.16x</div><div class="camp-sub">meta 3.0x · R$ 43.913 receita</div><div class="camp-spend">R$ 10.546 gasto · 2026-07-22→2026-07-25</div></div>
-<div class="camp-card hit"><div class="camp-nome">Catálogo</div><div class="camp-roas">7.45x</div><div class="camp-sub">meta 3.5x · R$ 5.694 receita</div><div class="camp-spend">R$ 764 gasto · 2026-07-22→2026-07-25</div></div>
-<div class="camp-card miss"><div class="camp-nome">Compra/Prospecção</div><div class="camp-roas">2.70x</div><div class="camp-sub">meta 3.0x · R$ 40.307 receita</div><div class="camp-spend">R$ 14.903 gasto · 2026-07-22→2026-07-25</div></div>
-</div></section>
 
 <nav class="tabs">
   <button class="tab-btn active" onclick="showTab('pipeline', this)">Pipeline</button>
@@ -273,18 +245,18 @@
       </tr>
     </thead>
     <tbody>
-      <tr><td class='prod'>Biquíni Fita Tradicional</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">6</td><td class="gastando">23</td><td class="gasto">R$ 20.747</td><td class="fat">R$ 65.893</td><td class="roas">3.18x</td></tr>
-<tr><td class='prod'>Biquíni Fita Reto</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos dim">—</td><td class="gastando">2</td><td class="gasto">R$ 113</td><td class="fat">R$ 240</td><td class="roas">2.12x</td></tr>
-<tr><td class='prod'>Macaquinho Decote Costas</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">7</td><td class="gastando">4</td><td class="gasto">R$ 2.191</td><td class="fat">R$ 8.476</td><td class="roas">3.87x</td></tr>
-<tr><td class='prod'>Macaquinho Costas Cruzadas</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">4</td><td class="gastando">1</td><td class="gasto">R$ 623</td><td class="fat">R$ 2.992</td><td class="roas">4.80x</td></tr>
-<tr><td class='prod'>Macacão Decote Costas</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">7</td><td class="gastando">7</td><td class="gasto">R$ 6.597</td><td class="fat">R$ 28.636</td><td class="roas">4.34x</td></tr>
-<tr><td class='prod'>Macacão Costas Cruzadas</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">2</td><td class="gastando">3</td><td class="gasto">R$ 288</td><td class="fat">R$ 2.122</td><td class="roas">7.36x</td></tr>
+      <tr><td class='prod'>Biquíni Fita Tradicional</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">6</td><td class="gastando">23</td><td class="gasto">R$ 39.805</td><td class="fat dim">—</td><td class="roas dim">—</td></tr>
+<tr><td class='prod'>Biquíni Fita Reto</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos dim">—</td><td class="gastando">2</td><td class="gasto">R$ 123</td><td class="fat dim">—</td><td class="roas dim">—</td></tr>
+<tr><td class='prod'>Macaquinho Decote Costas</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">7</td><td class="gastando">4</td><td class="gasto">R$ 3.120</td><td class="fat dim">—</td><td class="roas dim">—</td></tr>
+<tr><td class='prod'>Macaquinho Costas Cruzadas</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">4</td><td class="gastando">1</td><td class="gasto">R$ 677</td><td class="fat dim">—</td><td class="roas dim">—</td></tr>
+<tr><td class='prod'>Macacão Decote Costas</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">7</td><td class="gastando">7</td><td class="gasto">R$ 10.636</td><td class="fat dim">—</td><td class="roas dim">—</td></tr>
+<tr><td class='prod'>Macacão Costas Cruzadas</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">2</td><td class="gastando">3</td><td class="gasto">R$ 307</td><td class="fat dim">—</td><td class="roas dim">—</td></tr>
 <tr><td class='prod'>Legging</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">1</td><td class="gastando dim">—</td><td class="gasto">—</td><td class="fat dim">—</td><td class="roas dim">—</td></tr>
-<tr><td class='prod'>Outros</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">2</td><td class="gastando">7</td><td class="gasto">R$ 764</td><td class="fat">R$ 6.531</td><td class="roas">8.54x</td></tr>
+<tr><td class='prod'>Outros</td><td class=" dim">—</td><td class=" dim">—</td><td class=" dim">—</td><td class="prontos">2</td><td class="gastando">7</td><td class="gasto">R$ 1.400</td><td class="fat dim">—</td><td class="roas dim">—</td></tr>
 
       <tr class="tot-row">
         <td class="prod">Total</td>
-        <td class="total ">0</td><td class="total ">0</td><td class="total ">0</td><td class="total prontos">29</td><td class="total gastando">47</td><td class="total gasto">R$ 31.323</td><td class="total fat">R$ 114.889</td><td class="total roas">3.67x</td>
+        <td class="total ">0</td><td class="total ">0</td><td class="total ">0</td><td class="total prontos">29</td><td class="total gastando">47</td><td class="total gasto">R$ 56.067</td><td class="total fat">—</td><td class="total roas">—</td>
       </tr>
     </tbody>
   </table>
@@ -305,7 +277,7 @@
 
   <div class="fila-section" style="margin-bottom:32px">
     <h2>Levas de Gravação (Brutos)</h2>
-    <div class="fila-sub">51 vídeos brutos · clique na pasta para abrir no Drive</div>
+    <div class="fila-sub">46 vídeos brutos · clique na pasta para abrir no Drive</div>
     <div class="fila-grupos">
       <div class="fila-item" style="opacity:0.4"><a href="https://drive.google.com/file/d/1Pq4CmHYNikzd3GFayypoq-2VgefYhwo8/view?usp=drivesdk" target="_blank"><span class="ad-id">✓ AD424 — Macaquinho Decote Costas — Gabi Posando</span></a><span class="badge" style="color:#888;background:#222">0 vídeos · concluída</span><span style="color:var(--muted);font-size:11px;margin-left:6px">2026-07-15</span></div>
 <div class="fila-item" style="opacity:0.4"><a href="https://drive.google.com/file/d/1dHQx8spWkWHbuwZPnmr0gofPTQRui5db/view?usp=drivesdk" target="_blank"><span class="ad-id">✓ AD425 — Macaquinho Decote Costas — Split Screen</span></a><span class="badge" style="color:#888;background:#222">0 vídeos · concluída</span><span style="color:var(--muted);font-size:11px;margin-left:6px">2026-07-15</span></div>
@@ -314,11 +286,6 @@
 <div class="fila-item" style="opacity:0.4"><a href="https://drive.google.com/drive/folders/1OUz3GVHVStwX-57AJR6-P0YrhTmt-86X" target="_blank"><span class="ad-id">✓ LEVA PROVADOR - 03/07 (Macaquinho Costas Cruzadas)</span></a><span class="badge" style="color:#888;background:#222">2 vídeos · concluída</span><span style="color:var(--muted);font-size:11px;margin-left:6px">2026-07-03</span></div>
 <div class="fila-item" style="opacity:0.4"><a href="https://drive.google.com/drive/folders/1OUz3GVHVStwX-57AJR6-P0YrhTmt-86X" target="_blank"><span class="ad-id">✓ LEVA PROVADOR - 03/07 (Top Reto + Legging Cós Cruzado)</span></a><span class="badge" style="color:#888;background:#222">1 vídeos · concluída</span><span style="color:var(--muted);font-size:11px;margin-left:6px">2026-07-03</span></div>
 <div class="fila-item" style="opacity:0.4"><a href="https://drive.google.com/drive/folders/1OUz3GVHVStwX-57AJR6-P0YrhTmt-86X" target="_blank"><span class="ad-id">✓ LEVA PROVADOR - 03/07 (Macacão Costas Cruzadas)</span></a><span class="badge" style="color:#888;background:#222">2 vídeos · concluída</span><span style="color:var(--muted);font-size:11px;margin-left:6px">2026-07-03</span></div>
-<div class="fila-item" style="opacity:0.4"><a href="https://drive.google.com/file/d/1uRzxKzc9tEWBWTz-pEAnoN6OOKJbXM7W/view?usp=sharing" target="_blank"><span class="ad-id">✓ AD267 — Macacão Costas Cruzadas — Compressão Modela</span></a><span class="badge" style="color:#888;background:#222">1 vídeos · concluída</span><span style="color:var(--muted);font-size:11px;margin-left:6px">2026-05-25</span></div>
-<div class="fila-item" style="opacity:0.4"><a href="https://drive.google.com/file/d/1ieR3e2lUhXS0Nwv00iwdEdoI6sRe0fb7/view?usp=drive_link" target="_blank"><span class="ad-id">✓ AD270 — Macaquinho Decote Costas — Características</span></a><span class="badge" style="color:#888;background:#222">1 vídeos · concluída</span><span style="color:var(--muted);font-size:11px;margin-left:6px">2026-05-25</span></div>
-<div class="fila-item" style="opacity:0.4"><a href="https://drive.google.com/file/d/1P-CXbx6McOst_qc4aKx-AcDjeD8N6nIB/view?usp=drive_link" target="_blank"><span class="ad-id">✓ AD264 — Macaquinho Decote Costas — Versatilidade</span></a><span class="badge" style="color:#888;background:#222">1 vídeos · concluída</span><span style="color:var(--muted);font-size:11px;margin-left:6px">2026-05-23</span></div>
-<div class="fila-item" style="opacity:0.4"><a href="https://drive.google.com/file/d/1Xw4a2TBpfsN6o0frrreQ4b7T7l_aKnTa/view?usp=drive_link" target="_blank"><span class="ad-id">✓ AD242 — Macaquinho Decote Costas — Best Seller</span></a><span class="badge" style="color:#888;background:#222">1 vídeos · concluída</span><span style="color:var(--muted);font-size:11px;margin-left:6px">2026-05-22</span></div>
-<div class="fila-item" style="opacity:0.4"><a href="https://drive.google.com/file/d/1WhjHGVd3CsLUC_NiNk_m1iN1G650fKXB/view?usp=drive_link" target="_blank"><span class="ad-id">✓ AD269 — Macacão Decote Costas — Ritmo Dia a Dia</span></a><span class="badge" style="color:#888;background:#222">1 vídeos · concluída</span><span style="color:var(--muted);font-size:11px;margin-left:6px">2026-05-22</span></div>
 <div class="fila-item" style="opacity:0.4"><a href="https://drive.google.com/drive/folders/18CQgxyfPDnGQp_aI3JG2jYnuy8rLQqbi" target="_blank"><span class="ad-id">✓ ADS NINA GW - NOVO BIKI FITA</span></a><span class="badge" style="color:#888;background:#222">22 vídeos · concluída</span><span style="color:var(--muted);font-size:11px;margin-left:6px">2026-04-22</span></div>
 <div class="fila-item" style="opacity:0.4"><a href="https://drive.google.com/drive/folders/1vH5aikRcUvofcbEcXGxwhjUndviA2BWY" target="_blank"><span class="ad-id">✓ ADS MKT - COLEÇÃO MARINE</span></a><span class="badge" style="color:#888;background:#222">12 vídeos · concluída</span><span style="color:var(--muted);font-size:11px;margin-left:6px">2026-04-10</span></div>
 <div class="fila-item" style="opacity:0.4"><a href="https://drive.google.com/drive/folders/1TfUcZGboNrdvWJ4G6QrLILIDVOgwQCls" target="_blank"><span class="ad-id">✓ ADS LIVIA MAZ - COLEÇÃO MARINE</span></a><span class="badge" style="color:#888;background:#222">4 vídeos · concluída</span><span style="color:var(--muted);font-size:11px;margin-left:6px">2026-04-10</span></div>
@@ -378,35 +345,34 @@
     Testes ANDROMEDA · 3 conjuntos
   </div>
   <p style="font-size:12px;color:var(--muted);margin-bottom:16px">
-    Receita e ROAS <b>hybrid</b> (GA4 fechados + LNDC recente) por ad · linha: receita · ROAS · gasto ·
-    <span class="perdedor">PERDEDOR</span> = gastou &gt; R$500 e ROAS &lt; 1,5 (descartar) · "há Xd" = dias do conjunto
+    Só ads com gasto &gt; 0 nos últimos 7d · ordenados por gasto desc · "há Xd" = dias desde o primeiro ad do conjunto
   </p>
   
   <div class="andro-grid">
-    <div class="andro-card"><div class="andro-head"><span class="andro-adset">[BIKI-FITA]</span><span class="badge" style="color:#aaa;background:#222">10 ads</span><span class="badge" style="color:#ef4444;background:#2d0000">há 34d</span><span class="badge" style="color:#c8a96e;background:#2d2000">R$ 9.541 total</span><span class="badge" style="color:#3ecf8e;background:#0d0d0d">R$ 6.783 · 3.49x</span><span class="badge" style="color:#fff;background:#b91c1c">1 perdedor</span></div><div class="andro-ads"><div class="andro-ad loser"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD381</span><span style="color:#555;font-size:11px">20d</span><span class="andro-m first" style="color:#888">R$ 0</span><span class="andro-m" style="color:#ef4444;font-weight:600">0.00x</span><span class="andro-m" style="color:#c8a96e">R$ 56</span> <span class="perdedor">PERDEDOR · R$ 508 total</span></div>
-<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD387</span><span style="color:#555;font-size:11px">20d</span><span class="andro-m first" style="color:#888">R$ 3.157</span><span class="andro-m" style="color:#3ecf8e;font-weight:600">2.95x</span><span class="andro-m" style="color:#c8a96e">R$ 1.069</span></div>
-<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD418</span><span style="color:#555;font-size:11px">10d</span><span class="andro-m first" style="color:#888">R$ 718</span><span class="andro-m" style="color:#3ecf8e;font-weight:600">2.75x</span><span class="andro-m" style="color:#c8a96e">R$ 261</span></div>
-<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD367</span><span style="color:#555;font-size:11px">24d</span><span class="andro-m first" style="color:#888">R$ 1.483</span><span class="andro-m" style="color:#3ecf8e;font-weight:600">7.09x</span><span class="andro-m" style="color:#c8a96e">R$ 209</span></div>
-<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD369</span><span style="color:#555;font-size:11px">24d</span><span class="andro-m first" style="color:#888">R$ 788</span><span class="andro-m" style="color:#3ecf8e;font-weight:600">8.65x</span><span class="andro-m" style="color:#c8a96e">R$ 91</span></div>
-<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD368</span><span style="color:#555;font-size:11px">24d</span><span class="andro-m first" style="color:#888">R$ 397</span><span class="andro-m" style="color:#3ecf8e;font-weight:600">4.10x</span><span class="andro-m" style="color:#c8a96e">R$ 97</span></div>
-<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD407</span><span style="color:#555;font-size:11px">19d</span><span class="andro-m first" style="color:#888">R$ 240</span><span class="andro-m" style="color:#3ecf8e;font-weight:600">3.85x</span><span class="andro-m" style="color:#c8a96e">R$ 62</span></div>
-<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD406</span><span style="color:#555;font-size:11px">19d</span><span class="andro-m first" style="color:#888">R$ 0</span><span class="andro-m" style="color:#ef4444;font-weight:600">0.00x</span><span class="andro-m" style="color:#c8a96e">R$ 51</span></div>
-<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD335</span><span style="color:#555;font-size:11px">34d</span><span class="andro-m first" style="color:#888">R$ 0</span><span class="andro-m" style="color:#ef4444;font-weight:600">0.00x</span><span class="andro-m" style="color:#c8a96e">R$ 34</span></div>
-<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD382</span><span style="color:#555;font-size:11px">20d</span><span class="andro-m first" style="color:#888">R$ 0</span><span class="andro-m" style="color:#ef4444;font-weight:600">0.00x</span><span class="andro-m" style="color:#c8a96e">R$ 14</span></div>
+    <div class="andro-card"><div class="andro-head"><span class="andro-adset">[BIKI-FITA]</span><span class="badge" style="color:#aaa;background:#222">10 ads</span><span class="badge" style="color:#ef4444;background:#2d0000">há 34d</span><span class="badge" style="color:#c8a96e;background:#2d2000">R$ 3.197 7d</span></div><div class="andro-ads"><div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD387</span><span style="color:#555;font-size:11px">20d</span><span style="color:#c8a96e;font-size:11px">R$ 1.576</span></div>
+<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD418</span><span style="color:#555;font-size:11px">10d</span><span style="color:#c8a96e;font-size:11px">R$ 487</span></div>
+<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD367</span><span style="color:#555;font-size:11px">24d</span><span style="color:#c8a96e;font-size:11px">R$ 333</span></div>
+<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD368</span><span style="color:#555;font-size:11px">24d</span><span style="color:#c8a96e;font-size:11px">R$ 257</span></div>
+<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD369</span><span style="color:#555;font-size:11px">24d</span><span style="color:#c8a96e;font-size:11px">R$ 180</span></div>
+<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD381</span><span style="color:#555;font-size:11px">20d</span><span style="color:#c8a96e;font-size:11px">R$ 115</span></div>
+<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD335</span><span style="color:#555;font-size:11px">34d</span><span style="color:#c8a96e;font-size:11px">R$ 104</span></div>
+<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD407</span><span style="color:#555;font-size:11px">19d</span><span style="color:#c8a96e;font-size:11px">R$ 64</span></div>
+<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD406</span><span style="color:#555;font-size:11px">19d</span><span style="color:#c8a96e;font-size:11px">R$ 59</span></div>
+<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD382</span><span style="color:#555;font-size:11px">20d</span><span style="color:#c8a96e;font-size:11px">R$ 23</span></div>
 </div></div>
-<div class="andro-card"><div class="andro-head"><span class="andro-adset">[LEGGING-COS]</span><span class="badge" style="color:#aaa;background:#222">4 ads</span><span class="badge" style="color:#ef4444;background:#2d0000">há 20d</span><span class="badge" style="color:#c8a96e;background:#2d2000">R$ 6.448 total</span><span class="badge" style="color:#3ecf8e;background:#0d0d0d">R$ 10.224 · 6.00x</span></div><div class="andro-ads"><div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD408</span><span style="color:#555;font-size:11px">18d</span><span class="andro-m first" style="color:#888">R$ 8.728</span><span class="andro-m" style="color:#3ecf8e;font-weight:600">7.12x</span><span class="andro-m" style="color:#c8a96e">R$ 1.226</span></div>
-<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD412</span><span style="color:#555;font-size:11px">18d</span><span class="andro-m first" style="color:#888">R$ 671</span><span class="andro-m" style="color:#3ecf8e;font-weight:600">4.33x</span><span class="andro-m" style="color:#c8a96e">R$ 155</span></div>
-<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD373</span><span style="color:#555;font-size:11px">20d</span><span class="andro-m first" style="color:#888">R$ 825</span><span class="andro-m" style="color:#3ecf8e;font-weight:600">2.97x</span><span class="andro-m" style="color:#c8a96e">R$ 277</span></div>
-<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD410</span><span style="color:#555;font-size:11px">18d</span><span class="andro-m first" style="color:#888">R$ 0</span><span class="andro-m" style="color:#ef4444;font-weight:600">0.00x</span><span class="andro-m" style="color:#c8a96e">R$ 45</span></div>
+<div class="andro-card"><div class="andro-head"><span class="andro-adset">[LEGGING-COS]</span><span class="badge" style="color:#aaa;background:#222">4 ads</span><span class="badge" style="color:#ef4444;background:#2d0000">há 20d</span><span class="badge" style="color:#c8a96e;background:#2d2000">R$ 2.827 7d</span></div><div class="andro-ads"><div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD408</span><span style="color:#555;font-size:11px">18d</span><span style="color:#c8a96e;font-size:11px">R$ 1.749</span></div>
+<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD373</span><span style="color:#555;font-size:11px">20d</span><span style="color:#c8a96e;font-size:11px">R$ 557</span></div>
+<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD412</span><span style="color:#555;font-size:11px">18d</span><span style="color:#c8a96e;font-size:11px">R$ 380</span></div>
+<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD410</span><span style="color:#555;font-size:11px">18d</span><span style="color:#c8a96e;font-size:11px">R$ 142</span></div>
 </div></div>
-<div class="andro-card"><div class="andro-head"><span class="andro-adset">[P-ADV]</span><span class="badge" style="color:#aaa;background:#222">8 ads</span><span class="badge" style="color:#f59e0b;background:#2d2000">há 10d</span><span class="badge" style="color:#c8a96e;background:#2d2000">R$ 4.822 total</span><span class="badge" style="color:#3ecf8e;background:#0d0d0d">R$ 31.053 · 21.24x</span></div><div class="andro-ads"><div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD423</span><span style="color:#555;font-size:11px">10d</span><span class="andro-m first" style="color:#888">R$ 18.412</span><span class="andro-m" style="color:#3ecf8e;font-weight:600">68.36x</span><span class="andro-m" style="color:#c8a96e">R$ 269</span></div>
-<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD424</span><span style="color:#555;font-size:11px">10d</span><span class="andro-m first" style="color:#888">R$ 7.527</span><span class="andro-m" style="color:#3ecf8e;font-weight:600">32.09x</span><span class="andro-m" style="color:#c8a96e">R$ 235</span></div>
-<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD431</span><span style="color:#555;font-size:11px">5d</span><span class="andro-m first" style="color:#888">R$ 2.992</span><span class="andro-m" style="color:#3ecf8e;font-weight:600">4.80x</span><span class="andro-m" style="color:#c8a96e">R$ 623</span></div>
-<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD430</span><span style="color:#555;font-size:11px">5d</span><span class="andro-m first" style="color:#888">R$ 1.324</span><span class="andro-m" style="color:#3ecf8e;font-weight:600">6.64x</span><span class="andro-m" style="color:#c8a96e">R$ 199</span></div>
-<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD425</span><span style="color:#555;font-size:11px">10d</span><span class="andro-m first" style="color:#888">R$ 0</span><span class="andro-m" style="color:#ef4444;font-weight:600">0.00x</span><span class="andro-m" style="color:#c8a96e">R$ 17</span></div>
-<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD429</span><span style="color:#555;font-size:11px">5d</span><span class="andro-m first" style="color:#888">R$ 798</span><span class="andro-m" style="color:#3ecf8e;font-weight:600">11.04x</span><span class="andro-m" style="color:#c8a96e">R$ 72</span></div>
-<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD432</span><span style="color:#555;font-size:11px">5d</span><span class="andro-m first" style="color:#888">R$ 0</span><span class="andro-m" style="color:#ef4444;font-weight:600">0.00x</span><span class="andro-m" style="color:#c8a96e">R$ 30</span></div>
-<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD428</span><span style="color:#555;font-size:11px">5d</span><span class="andro-m first" style="color:#888">R$ 0</span><span class="andro-m" style="color:#ef4444;font-weight:600">0.00x</span><span class="andro-m" style="color:#c8a96e">R$ 17</span></div>
+<div class="andro-card"><div class="andro-head"><span class="andro-adset">[P-ADV]</span><span class="badge" style="color:#aaa;background:#222">8 ads</span><span class="badge" style="color:#f59e0b;background:#2d2000">há 10d</span><span class="badge" style="color:#c8a96e;background:#2d2000">R$ 3.075 7d</span></div><div class="andro-ads"><div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD423</span><span style="color:#555;font-size:11px">10d</span><span style="color:#c8a96e;font-size:11px">R$ 1.562</span></div>
+<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD431</span><span style="color:#555;font-size:11px">5d</span><span style="color:#c8a96e;font-size:11px">R$ 677</span></div>
+<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD424</span><span style="color:#555;font-size:11px">10d</span><span style="color:#c8a96e;font-size:11px">R$ 461</span></div>
+<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD430</span><span style="color:#555;font-size:11px">5d</span><span style="color:#c8a96e;font-size:11px">R$ 209</span></div>
+<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD429</span><span style="color:#555;font-size:11px">5d</span><span style="color:#c8a96e;font-size:11px">R$ 80</span></div>
+<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD425</span><span style="color:#555;font-size:11px">10d</span><span style="color:#c8a96e;font-size:11px">R$ 37</span></div>
+<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD432</span><span style="color:#555;font-size:11px">5d</span><span style="color:#c8a96e;font-size:11px">R$ 31</span></div>
+<div class="andro-ad"><span style="color:#3ecf8e;font-size:9px">●</span> <span class="ad-id" style="font-size:12px">AD428</span><span style="color:#555;font-size:11px">5d</span><span style="color:#c8a96e;font-size:11px">R$ 18</span></div>
 </div></div>
 
   </div>
@@ -415,7 +381,7 @@
 <!-- ── Tab: Ângulos & Formatos ── -->
 <div id="tab-angulos" class="tab-panel">
   <p style="font-size:12px;color:var(--muted);margin-bottom:24px">
-    Ativos = "No ar" na planilha &middot; Fila = "Pronto" &middot; AD242+
+    Ativos = "No ar" na planilha &middot; Fila = "Pronto" ou "Ag. Veiculação" &middot; AD242+
   </p>
   <div class="dim-grids">
     <div class="dim-grid">
@@ -499,23 +465,6 @@ function showTab(id, btn) {
   document.getElementById('tab-' + id).classList.add('active');
   btn.classList.add('active');
 }
-</script>
-<script>
-(function(){
-  var el = document.getElementById('freshness');
-  if (!el) return;
-  var gen = new Date(el.dataset.generated);
-  function render(){
-    var mins = Math.max(0, Math.round((Date.now() - gen.getTime())/60000));
-    var h = Math.floor(mins/60), m = mins%60;
-    var ago = h>0 ? (h+'h'+(m<10?'0':'')+m) : (m+'min');
-    var stale = mins > 480;
-    el.textContent = (stale?'\u26A0\uFE0F ':'') + 'Atualizado h\u00E1 ' + ago;
-    el.className = stale ? 'stale' : 'fresh';
-    el.title = 'Gerado: ' + gen.toLocaleString('pt-BR');
-  }
-  render(); setInterval(render, 60000);
-})();
 </script>
 
 </body>
