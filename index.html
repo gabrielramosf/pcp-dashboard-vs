@@ -138,21 +138,6 @@
   .tab-panel { display: none; }
   .tab-panel.active { display: block; }
 
-  /* ── Análise por dimensão ── */
-  .dim-grids { display: flex; gap: 32px; flex-wrap: wrap; }
-  .dim-grid { flex: 1 1 260px; }
-  .dim-grid h3 {
-    font-size: 11px; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 0.5px; color: var(--muted); margin-bottom: 10px;
-  }
-  .dim-grid table { width: 100%; border-collapse: collapse; font-size: 13px; }
-  .dim-grid th, .dim-grid td {
-    padding: 8px 10px; text-align: right;
-    border-bottom: 1px solid var(--border);
-  }
-  .dim-grid th { font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); background: var(--surface); }
-  .dim-grid td.prod { text-align: left; font-weight: 500; min-width: 160px; }
-
   /* ── Estoque section ── */
   .estoque-grid { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 32px; }
   .estoque-card {
@@ -372,7 +357,7 @@
     <h1>PCP de Ads</h1>
   </div>
   <div class="meta">
-    <span id="freshness" data-generated="2026-08-18T19:30">Atualizado em 2026-08-18</span>
+    <span id="freshness" data-generated="2026-08-18T19:41">Atualizado em 2026-08-18</span>
     <span>Receita/gasto: 2026-08-14 → 2026-08-17 (4d hybrid)</span>
   </div>
 </header>
@@ -387,7 +372,6 @@
   <button class="tab-btn active" onclick="showTab('pipeline', this)">Pipeline</button>
   <button class="tab-btn" onclick="showTab('testes', this)">Gestão de Campanhas</button>
   <button class="tab-btn" onclick="showTab('historico', this)">Histórico de Vencedores</button>
-  <button class="tab-btn" onclick="showTab('angulos', this)">Ângulos & Formatos</button>
   <button class="tab-btn" onclick="showTab('lifecycle', this)">Lifecycle</button>
 </nav>
 
@@ -647,81 +631,6 @@
   </table>
   </div>
   
-</div>
-
-<!-- ── Tab: Ângulos & Formatos ── -->
-<div id="tab-angulos" class="tab-panel">
-  <p style="font-size:12px;color:var(--muted);margin-bottom:24px">
-    Ativos = "No ar" na planilha &middot; Fila = "Pronto" &middot; AD242+
-  </p>
-  <div class="dim-grids">
-    <div class="dim-grid">
-      <h3>Por Ângulo</h3>
-      <table>
-        <thead><tr><th style="text-align:left">Ângulo</th><th class="gastando">Ativo</th><th class="prontos">Fila</th></tr></thead>
-        <tbody><tr><td class="prod">ANIVERSARIO</td><td class="gastando">17</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">—</td><td class="gastando">12</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">PRECO-OFERTA</td><td class="gastando">7</td><td class="prontos">1</td></tr>
-<tr><td class="prod">Beneficios</td><td class="gastando">6</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">PROVA-SOCIAL</td><td class="gastando">4</td><td class="prontos">8</td></tr>
-<tr><td class="prod">CARACTERISTICAS</td><td class="gastando">3</td><td class="prontos">1</td></tr>
-<tr><td class="prod">DEPOIMENTO</td><td class="gastando">2</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">NOVIDADE</td><td class="gastando">2</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">VALORIZA-O-CORPO</td><td class="gastando">2</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">ROTINA-VERSATIL</td><td class="gastando">1</td><td class="prontos">2</td></tr>
-<tr><td class="prod">MARQUINHA</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">COMPRA-INVERNO</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">Marquinha de fita (cortado: sem TikTok Shop)</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">Efeito silicone / realça corpo (cortado: sem TikTok Shop)</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">Marquinha perfeita</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">Bronzeado perfeito (unboxing)</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">Não marca</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">Compressão / modela (top P, leg M)</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">Modela o corpo / efeito silicone</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">Não transparência (legging fantasma)</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">SEM-COSTURA</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">CUSTO-BENEFICIO</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">FAVORITO</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">Look Treino</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">Benefícios Poliamida</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">Algoritmo Desconto</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">Escolha Única Peça</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">COMBO-VIAGEM</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">REPOSICAO-ANIVERSARIO</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">TENHO-170</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">BENEFICIOS</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">Valoriza O Corpo</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">Tenho 170</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">VALORIZA-CORPO</td><td class="gastando dim">—</td><td class="prontos">4</td></tr>
-<tr><td class="prod">FITNESS-PERFORMANCE</td><td class="gastando dim">—</td><td class="prontos">3</td></tr>
-<tr><td class="prod">RITMO-DIA-A-DIA</td><td class="gastando dim">—</td><td class="prontos">1</td></tr>
-</tbody>
-      </table>
-    </div>
-    <div class="dim-grid">
-      <h3>Por Formato</h3>
-      <table>
-        <thead><tr><th style="text-align:left">Formato</th><th class="gastando">Ativo</th><th class="prontos">Fila</th></tr></thead>
-        <tbody><tr><td class="prod">UGC</td><td class="gastando">39</td><td class="prontos">4</td></tr>
-<tr><td class="prod">ESTATICO-FEED</td><td class="gastando">10</td><td class="prontos">2</td></tr>
-<tr><td class="prod">—</td><td class="gastando">7</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">ESTUDIO</td><td class="gastando">5</td><td class="prontos">2</td></tr>
-<tr><td class="prod">TALKING-HEAD</td><td class="gastando">5</td><td class="prontos">1</td></tr>
-<tr><td class="prod">Provador</td><td class="gastando">3</td><td class="prontos">4</td></tr>
-<tr><td class="prod">STORIE-NA-CAMA</td><td class="gastando">2</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">Storie 2a Pessoa</td><td class="gastando">2</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">PROVADOR</td><td class="gastando">1</td><td class="prontos">1</td></tr>
-<tr><td class="prod">SPLIT-SCREEN</td><td class="gastando">1</td><td class="prontos">1</td></tr>
-<tr><td class="prod">UNBOXING-2P</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">Story-espelho</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">GABI-POSANDO</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">Closet</td><td class="gastando">1</td><td class="prontos dim">—</td></tr>
-<tr><td class="prod">FAMOSAS</td><td class="gastando dim">—</td><td class="prontos">4</td></tr>
-<tr><td class="prod">FEATURING-1P</td><td class="gastando dim">—</td><td class="prontos">1</td></tr>
-</tbody>
-      </table>
-    </div>
-  </div>
 </div>
 
 <!-- ── Tab: Lifecycle ── -->
